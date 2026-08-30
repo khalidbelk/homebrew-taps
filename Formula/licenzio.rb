@@ -3,7 +3,7 @@ class Licenzio < Formula
   homepage "https://github.com/khalidbelk/licenzio"
   license "MIT"
 
-  pkg_version = "0.2.1"
+  pkg_version = "0.2.2"
   base_url = "https://github.com/khalidbelk/licenzio/releases/download/v#{pkg_version}/licenzio"
 
   on_macos do
@@ -16,10 +16,10 @@ class Licenzio < Formula
 
   if OS.mac?
     url "#{base_url}-macos"
-    sha256 "dd16b4bf8d8cba25a9d1cbdcec12cd11c40f64b8e8ed7a231c07839cef07be36"
+    sha256 "6e1f102bb6a519c033524e935da1d6c68c34908392a9f670132e4ffd375d05a7"
   elsif OS.linux?
     url "#{base_url}-linux"
-    sha256 "f61990db33f26ce5bfe8ac8425fcb55f2aa6438cc993f66b579e5fda8f44d6b6"
+    sha256 "61756767cbd487c695a67db4fafff25b0e21a3b214d57fa36a3e24e311cf6067"
   end
 
   def install
