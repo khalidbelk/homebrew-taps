@@ -1,4 +1,4 @@
-# Khalidbelk Taps
+# @khalidbelk Taps
 
 ## How do I install these formulae?
 
