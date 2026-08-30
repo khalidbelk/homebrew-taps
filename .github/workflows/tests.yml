@@ -50,7 +50,19 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae
+      - name: List formulae in this tap
+        id: formulae
+        run: echo "names=$(.github/scripts/list-formulae.sh)" >> "$GITHUB_OUTPUT"
+
+        # Can't detect diff on-push, test all formulae
+      - name: Test formulae (push-only)
+        if: github.event_name == 'push'
+        run: brew test-bot --only-formulae --testing-formulae="${{ steps.formulae.outputs.names }}"
+
+        # Can detect diff
+      - name: Test formulae (PR-only)
+        if: github.event_name == 'pull_request'
+        run: brew test-bot --only-formulae
 
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
